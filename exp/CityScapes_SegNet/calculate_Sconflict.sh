@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python ./scripts/cal_conflict_scores.py --path ./logs/CityScapes+SegNet_Recon/0_Baseline_ep39_lw_cos.pt --S 0.0 --n_epoch 40

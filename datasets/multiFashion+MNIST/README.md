@@ -1,0 +1,1 @@
+We follow the setup of [Pareto MTL](https://papers.nips.cc/paper_files/paper/2019/hash/685bfde03eb646c27ed565881917c71c-Abstract.html). The datasets could be downloaded from [MultiFashion+MNIST](https://drive.google.com/open?id=1VnmCmBAVh8f_BKJg1KYx-E137gBLXbGG)

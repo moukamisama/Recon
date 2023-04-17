@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python ./scripts/cal_conflict_scores.py --path ./logs/NYUv2+MTAN_Recon/0_Baseline_ep49_lw_cos.pt --S -0.02 --n_epoch 40
