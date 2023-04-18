@@ -10,7 +10,6 @@ import os.path as osp
 import torch
 import torch.utils.data
 import torch.optim as optim
-import torch.nn as nn
 
 from utils import make_exp_and_log_dirs, set_random_seed, SEG_CLASSES_NYUv2
 
@@ -213,8 +212,7 @@ if __name__ == '__main__':
         for k, data in enumerate(train_loader):
             data_timer.record()
             current_iter += 1
-
-            train_data, train_label, train_depth, train_normal, indices = data
+            train_data, train_label, train_depth, train_normal = data
             train_data, train_label = train_data.cuda(), train_label.long().cuda()
             train_depth, train_normal = train_depth.cuda(), train_normal.cuda()
 
@@ -263,8 +261,7 @@ if __name__ == '__main__':
         if epoch % opt.eval_freq == 0 or epoch == opt.n_epoch - 1:
             model.eval()
             for k, data in enumerate(test_loader):
-
-                train_data, train_label, train_depth, train_normal, indices = data
+                train_data, train_label, train_depth, train_normal = data
                 train_data, train_label = train_data.cuda(), train_label.long().cuda()
                 train_depth, train_normal = train_depth.cuda(), train_normal.cuda()
 

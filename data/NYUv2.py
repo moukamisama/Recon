@@ -79,7 +79,7 @@ class NYUv2(Dataset):
                 normal = torch.flip(normal, dims=[2])
                 normal[0, :, :] = - normal[0, :, :]
 
-        return image.float(), semantic.float(), depth.float(), normal.float(), index
+        return image.float(), semantic.float(), depth.float(), normal.float()
 
     def __len__(self):
         return self.data_len

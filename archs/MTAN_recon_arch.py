@@ -318,13 +318,23 @@ class MTAN_recon(nn.Module):
         assert len(atten_decoder[-1][-1]) == self.n_tasks, 'Error'
 
         output = {}
-        for task in self.tasks:
-            if task == 'semantic':
-                output[task] = self.semantic_pred(atten_decoder[-1][-1][0])[0]
-            if task == 'depth':
-                output[task] = self.depth_pred(atten_decoder[-1][-1][1])[0]
-            if task == 'normal':
-                t3_pred = self.normal_pred(atten_decoder[-1][-1][2])[0]
-                output[task] = t3_pred / torch.norm(t3_pred, p=2, dim=1, keepdim=True)
+        if len(atten_decoder[-1][-1]) == 1:
+            for task in self.tasks:
+                if task == 'semantic':
+                    output[task] = self.semantic_pred(atten_decoder[-1][-1][0])[0]
+                if task == 'depth':
+                    output[task] = self.depth_pred(atten_decoder[-1][-1][0])[0]
+                if task == 'normal':
+                    t3_pred = self.normal_pred(atten_decoder[-1][-1][0])[0]
+                    output[task] = t3_pred / torch.norm(t3_pred, p=2, dim=1, keepdim=True)
+        elif len(atten_decoder[-1][-1]) > 1:
+            for task in self.tasks:
+                if task == 'semantic':
+                    output[task] = self.semantic_pred(atten_decoder[-1][-1][0])[0]
+                if task == 'depth':
+                    output[task] = self.depth_pred(atten_decoder[-1][-1][1])[0]
+                if task == 'normal':
+                    t3_pred = self.normal_pred(atten_decoder[-1][-1][2])[0]
+                    output[task] = t3_pred / torch.norm(t3_pred, p=2, dim=1, keepdim=True)
 
         return output

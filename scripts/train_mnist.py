@@ -27,7 +27,7 @@ def project_args(parser):
     parser.add_argument('--path', default='./logs', type=str, help='The path of the experiment')
 
 def training_args(parser):
-    parser.add_argument('--dataroot', default='./datasets/multiMNIST/multi_fashion_and_mnist.pickle', type=str, help='Dataset root')
+    parser.add_argument('--dataroot', default='./datasets/multiFashion+MNIST/multi_fashion_and_mnist.pickle', type=str, help='Dataset root')
     parser.add_argument('--optimizer', default='SGD', type=str, help='The type of optimizer')
     parser.add_argument('--loss', default='WeightedSumLoss', type=str, help='The type of loss function')
     parser.add_argument('--lr', default=1e-1, type=float, help='The learning rate')
@@ -208,7 +208,7 @@ if __name__ == '__main__':
             x = data[0].cuda()
             ts = data[1].cuda()
 
-            ts = {task: ts[:,k] for k, task in enumerate(opt.tasks)}
+            ts = {'T1': ts[:, 0], 'T2': ts[:, 1]}
 
             outputs, losses = model.train_loop(inputs=x, targets=ts, loss=loss_func, optimizer=optimizer)
 
@@ -244,7 +244,7 @@ if __name__ == '__main__':
                 x = data[0].cuda()
                 ts = data[1].cuda()
 
-                ts = {task: ts[:, k] for k, task in enumerate(opt.tasks)}
+                ts = {'T1': ts[:, 0], 'T2': ts[:, 1]}
 
                 output, losses = model.eval_loop(inputs=x, targets=ts, loss=loss_func)
 

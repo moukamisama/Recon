@@ -269,7 +269,7 @@ class SegNet_recon(nn.Module):
                 if task == 'normal':
                     t3_pred = self.normal_pred(g_decoder[-1][-1][0])[0]
                     output[task] = t3_pred / torch.norm(t3_pred, p=2, dim=1, keepdim=True)
-        if len(g_decoder[-1][-1]) == self.n_tasks:
+        elif len(g_decoder[-1][-1]) > 1:
             for task in self.tasks:
                 if task == 'semantic':
                     output[task] = self.semantic_pred(g_decoder[-1][-1][0])[0]

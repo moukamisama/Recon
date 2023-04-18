@@ -12,9 +12,9 @@
     }
 
 ## Updates
-- ✅ 2023-02-22: Release the first version of the paper at Arxiv.
+- ✅ 2023-04-17: Release the first version of the paper at Arxiv.
 - ✅ 2022-04-17: Release the first version of codes and configs of Recon (including the implementation of [CAGrad](https://proceedings.neurips.cc/paper/2021/file/9d27fdf2477ffbff837d73ef7ae23db9-Paper.pdf), [PCGrad](https://proceedings.neurips.cc/paper/2020/file/3fe78a8acf5fda99de95303940a2420c-Paper.pdf), [Graddrop](https://proceedings.neurips.cc/paper/2020/file/16002f7a455a94aa4e91cc34ebdb9f2d-Paper.pdf) and [MGDA](https://proceedings.neurips.cc/paper/2018/file/432aca3a1e345e339f35a30c8f65edce-Paper.pdf)).
-- 🚧 **(To do)** Upload the training scripts of Single-Task Learning Baseline.
+- ✅ 2022-04-19: Upload the training scripts of Single-Task Learning Baseline.
 - 🚧 **(To do)** Upload the training codes and configs on dataset PASCAL-Context and CelebA.
 - 🚧 **(To do)** Upload implementations of [BMTAS](https://arxiv.org/pdf/2008.10292.pdf) and [RotoGrad](https://arxiv.org/pdf/2103.02631.pdf).
 
